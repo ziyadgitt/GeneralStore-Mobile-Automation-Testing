@@ -13,7 +13,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "types": ["node", "@wdio/mocha-framework", "expect-webdriverio"]
+    "types": ["node", "@wdio/globals/types", "@wdio/mocha-framework", "expect-webdriverio"]
   },
   "include": ["tests/**/*.ts", "config/**/*.ts"],
   "exclude": ["node_modules", "dist"]

@@ -104,7 +104,7 @@ describe('General Store - Country Selection', () => {
             await browser.pause(300);
 
             // Check if we've reached the end (no new items appearing)
-            const items = await $$('android.widget.TextView');
+            const items = await $$('android.widget.TextView').getElements();
             if (items.length > 0) {
                 lastText = await items[items.length - 1].getText();
                 if (lastText === prevText) break; // Reached the end
@@ -113,7 +113,7 @@ describe('General Store - Country Selection', () => {
         }
 
         // Select the last visible item
-        const lastItems = await $$('android.widget.TextView');
+        const lastItems = await $$('android.widget.TextView').getElements();
         const lastCountry = lastItems[lastItems.length - 1];
         const lastCountryText = await lastCountry.getText();
         await lastCountry.click();
@@ -149,13 +149,13 @@ describe('General Store - Country Selection', () => {
         }
 
         // Get only the dropdown list items (android.widget.CheckedTextView inside the dropdown)
-        let dropdownItems = await $$('android.widget.CheckedTextView');
+        let dropdownItems = await $$('android.widget.CheckedTextView').getElements();
         // Fallback: if no CheckedTextView, use TextView inside the dropdown list
         if (dropdownItems.length === 0) {
-            dropdownItems = await $$('android=new UiSelector().resourceId("android:id/text1")');
+            dropdownItems = await $$('android=new UiSelector().resourceId("android:id/text1")').getElements();
         }
         if (dropdownItems.length === 0) {
-            dropdownItems = await $$('android=new UiSelector().className("android.widget.TextView").clickable(true)');
+            dropdownItems = await $$('android=new UiSelector().className("android.widget.TextView").clickable(true)').getElements();
         }
 
         // Filter out countries already selected in previous tests
@@ -237,7 +237,7 @@ describe('General Store - Name Textbar Functioning', () => {
         await attachScreenshot('Name Textbar - Empty field with validation message');
     });
 
-    it('TC003-1: Select Name textbar - Textbar is focused and ready for input', async () => {
+    it('TC002-6: Select Name textbar - Textbar is focused and ready for input', async () => {
         const nameField = await $('id:com.androidsample.generalstore:id/nameField');
         await nameField.waitForDisplayed({ timeout: 10000 });
 
@@ -255,7 +255,7 @@ describe('General Store - Name Textbar Functioning', () => {
         await nameField.clearValue();
     });
 
-    it('TC003-2: Fill in with common name - Name is entered and displayed', async () => {
+    it('TC002-7: Fill in with common name - Name is entered and displayed', async () => {
         const nameField = await $('id:com.androidsample.generalstore:id/nameField');
         await nameField.waitForDisplayed({ timeout: 10000 });
 
@@ -281,7 +281,7 @@ describe('General Store - Name Textbar Functioning', () => {
         await nameField.clearValue();
     });
 
-    it('TC003-3: Fill in with all small letters - Lowercase text is entered and displayed', async () => {
+    it('TC002-8: Fill in with all small letters - Lowercase text is entered and displayed', async () => {
         const nameField = await $('id:com.androidsample.generalstore:id/nameField');
         await nameField.waitForDisplayed({ timeout: 10000 });
 
@@ -307,7 +307,7 @@ describe('General Store - Name Textbar Functioning', () => {
         await nameField.clearValue();
     });
 
-    it('TC003-4: Fill in with mixed letters, numbers, special symbols - Mixed input is displayed', async () => {
+    it('TC002-9: Fill in with mixed letters, numbers, special symbols - Mixed input is displayed', async () => {
         const nameField = await $('id:com.androidsample.generalstore:id/nameField');
         await nameField.waitForDisplayed({ timeout: 10000 });
 
@@ -350,7 +350,7 @@ describe('General Store - Gender Radio Button', () => {
         }
     });
 
-    it('TC004-1: Select Male from Gender Radio Button - Male is selected, Female deselected', async () => {
+    it('TC002-10: Select Male from Gender Radio Button - Male is selected, Female deselected', async () => {
         const maleRadio = await $('id:com.androidsample.generalstore:id/radioMale');
         const femaleRadio = await $('id:com.androidsample.generalstore:id/radioFemale');
         await maleRadio.waitForDisplayed({ timeout: 10000 });
@@ -370,7 +370,7 @@ describe('General Store - Gender Radio Button', () => {
         await attachScreenshot('Gender Radio - Male selected, Female deselected');
     });
 
-    it('TC004-2: Select Female from Gender Radio Button - Female is selected, Male deselected', async () => {
+    it('TC002-11: Select Female from Gender Radio Button - Female is selected, Male deselected', async () => {
         const maleRadio = await $('id:com.androidsample.generalstore:id/radioMale');
         const femaleRadio = await $('id:com.androidsample.generalstore:id/radioFemale');
         await femaleRadio.waitForDisplayed({ timeout: 10000 });
@@ -409,7 +409,7 @@ describe('General Store - Let\'s Shop Navigation', () => {
         }
     });
 
-    it('TC005-1: On Male Gender, select Let\'s Shop - User navigated to Products Screen', async () => {
+    it('TC002-12: On Male Gender, select Let\'s Shop - User navigated to Products Screen', async () => {
         // Ensure Male radio is selected
         const maleRadio = await $('id:com.androidsample.generalstore:id/radioMale');
         await maleRadio.waitForDisplayed({ timeout: 10000 });
@@ -437,7 +437,7 @@ describe('General Store - Let\'s Shop Navigation', () => {
         await attachScreenshot('Products Screen - Navigated with Male gender');
     });
 
-    it('TC005-2: Go back to previous screen using back button - User returns to landing screen', async () => {
+    it('TC002-13: Go back to previous screen using back button - User returns to landing screen', async () => {
         // Press device back button
         await browser.back();
         await browser.pause(1000);
@@ -450,7 +450,7 @@ describe('General Store - Let\'s Shop Navigation', () => {
         await attachScreenshot('Landing Screen - Returned via back button');
     });
 
-    it('TC005-3: On Female Gender, select Let\'s Shop - User navigated to Products Screen', async () => {
+    it('TC2-14: On Female Gender, select Let\'s Shop - User navigated to Products Screen', async () => {
         // Select Female radio button
         const femaleRadio = await $('id:com.androidsample.generalstore:id/radioFemale');
         await femaleRadio.waitForDisplayed({ timeout: 10000 });

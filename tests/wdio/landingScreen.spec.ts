@@ -47,7 +47,7 @@ describe('General Store - App Launch', () => {
         }
     });
 
-    it('TC001: Launch App cold-start from Home - App opens on Landing Screen', async () => {
+    it('TC001-1: Launch App cold-start from Home - App opens on Landing Screen', async () => {
         // Verify the app package is the General Store
         const currentPackage = await browser.getCurrentPackage();
         expect(currentPackage).toBe('com.androidsample.generalstore');

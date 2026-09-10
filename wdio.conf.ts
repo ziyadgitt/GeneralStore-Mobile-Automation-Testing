@@ -40,6 +40,8 @@ export const config: Options.Testrunner = {
     ],
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000,
+        // Cart journeys walk the whole product list several times over, so they
+        // need considerably more headroom than a single-screen check
+        timeout: 300000,
     },
 };
