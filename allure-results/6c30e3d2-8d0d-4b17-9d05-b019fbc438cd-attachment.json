@@ -1,0 +1,13 @@
+{
+  "script": "<script> [20 bytes]",
+  "args": [
+    {
+      "left": 80,
+      "top": 192,
+      "width": 160,
+      "height": 224,
+      "direction": "up",
+      "speed": 15000
+    }
+  ]
+}

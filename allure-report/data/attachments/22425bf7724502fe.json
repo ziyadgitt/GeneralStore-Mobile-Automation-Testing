@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": ".//*[@resource-id=\"com.androidsample.generalstore:id/productName\"]"
+}

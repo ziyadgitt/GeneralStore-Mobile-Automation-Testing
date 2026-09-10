@@ -1,0 +1,6 @@
+{
+  "script": "mobile: getCurrentPackage",
+  "args": [
+    {}
+  ]
+}

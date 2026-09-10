@@ -1,0 +1,13 @@
+{
+  "script": "<script> [20 bytes]",
+  "args": [
+    {
+      "left": 80,
+      "top": 192,
+      "width": 160,
+      "height": 192,
+      "direction": "down",
+      "percent": 0.75
+    }
+  ]
+}

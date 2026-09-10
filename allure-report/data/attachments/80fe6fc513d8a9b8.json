@@ -1,0 +1,12 @@
+{
+  "script": "<script> [13 bytes]",
+  "args": [
+    {
+      "command": "am",
+      "args": [
+        "force-stop",
+        "com.androidsample.generalstore"
+      ]
+    }
+  ]
+}

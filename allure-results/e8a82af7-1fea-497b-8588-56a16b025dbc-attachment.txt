@@ -1,0 +1,1 @@
+unknown error: WebDriverError: Potentially insecure feature 'adb_shell' has not been enabled. If you want to enable this feature and accept the security ramifications, please do so by following the documented instructions at http://appium.io/docs/en/latest/guides/security/ when running "execute/sync" with method "POST"
